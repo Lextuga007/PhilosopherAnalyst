@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to &quot;My New Post&quot;",
+    "description": "Welcome to our new blog, &quot;My New Post&quot;. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Zoë Turner",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2020-11-30",
+    "categories": [],
+    "contents": "\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2020-11-30T15:33:14+00:00",
+    "input_file": "welcome.utf8.md"
+  }
+]
