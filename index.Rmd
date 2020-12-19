@@ -11,7 +11,22 @@ knitr::opts_chunk$set(echo = FALSE)
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
 
+library(magick)
+
+leaf <- image_read("img/leaf.jpg", density = NULL, depth = NULL, strip = FALSE)
+
+leaf_credit <- image_annotate(
+  leaf, 
+  text = "Credit: Zoë and Alys Turner 2020", size = 12, 
+  location = "+50+100",
+  gravity = "southeast",
+  color = "white",
+  font = "Arial"
+  )
+
 ```
+
+`r leaf_credit`
 
 I am a Senior Information Analyst working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I'm also involved with the trust's Ethic Committee and consequently reviving my former interest medical ethics.
 
