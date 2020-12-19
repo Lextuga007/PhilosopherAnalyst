@@ -1,7 +1,7 @@
 ---
-title: "My Website"
+title: "Philosopher Analyst"
 description: |
-  Welcome to the website. I hope you enjoy it!
+  You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst
 site: distill::distill_website
 ---
 
@@ -12,4 +12,6 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html
 
 ```
+
+I am a Senior Information Analyst working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I'm also involved with the trust's Ethic Committee and consequently reviving my former interest medical ethics.
 
