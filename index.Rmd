@@ -3,6 +3,9 @@ title: "Philosopher Analyst"
 description: |
   You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst
 site: distill::distill_website
+listing: posts
+categories:
+  - SQL
 ---
 
 ```{r setup, include=FALSE}
@@ -25,6 +28,8 @@ leaf_credit <- image_annotate(
   )
 
 ```
+
+# `r rmarkdown::metadata$title`
 
 `r leaf_credit`
 
