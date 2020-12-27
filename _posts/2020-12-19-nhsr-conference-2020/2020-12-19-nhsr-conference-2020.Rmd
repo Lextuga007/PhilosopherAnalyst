@@ -35,7 +35,7 @@ knitr::include_graphics("https://nhsrcommunity.com/wp-content/uploads/2018/02/lo
 
 
 ```{r embed-xaringan-01, echo=FALSE}
-xaringanExtra::embed_xaringan(url = "https://lextuga007.github.io/Presentations/nhsr-conference-2020/SQLRTalk.html", ratio = "16:9")
+xaringanExtra::embed_xaringan(url = "https://lextuga007.github.io/Presentations/nhsr-conference-2020/SQLRTalk.html", ratio = "4:3")
 ```
 
 
