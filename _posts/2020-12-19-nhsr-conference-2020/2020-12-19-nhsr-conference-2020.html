@@ -2482,8 +2482,48 @@ distill-header .nav a {
 <p>I also noticed the same box when I knitted xaringan slides and I was using a link to a video. The particular slide would only work when the slides were opened in the Chrome browser. Given that the NHS often default to Explorer or Edge browsers, it might also be worth checking you are using Chrome if you are not on a VPN and still get the blank slider box.</p>
 <h2 id="xaringan-slides-are-not-self-contained">Xaringan slides are not self-contained</h2>
 <p>Unlike using html, the xaringan slides need to have the images, CSS and libraries available to run it. I made the mistake of using two folders for my images but it worked out that I used /img for the slide backgrounds and the /images for the pictures related only to that presentation.</p>
-<h2 id="other-ways-to-publish">Other ways to publish</h2>
-<p>Knitting to a pdf can be a useful way around needing html or xaringan but this won’t work if you have an interactivity (dygraphs or plotly charts) or movement in your slides (videos or GIFs). If you look through the commits in my Presentation repository you will see me flicking between html to pdf and back to html as I’ve gone along.</p>
+<h2 id="update">Update…</h2>
+<p>Silvia kindly shared the <a href="https://github.com/yihui/xaringan/blob/master/NEWS.md">update</a> about making the xaringan presentations ‘self-contained’. I’d used that line of code for this blog originally as I hadn’t read the instructions and had wondered if that was why the slide navigation was missing (see the answer to that below!). Testing how ‘self-contained’ self-contained is I emailed myself just the html and got the text but no formats. Zipping together the html along with the css, img and libs (my names for these) folders did mean the html opened up ok with all the formatting. It’s a little like when saving a webpage and a same-named folder appears that is needed for the html to open.</p>
+<h2 id="reasons-not-to-use-pdfs">Reasons not to use pdfs</h2>
+<p>Using pdfs gets around the need to email out supporting files and folders as it’s just one file to send, however, I’m reluctant to use pdfs because of accessibility as much as aesthetics:</p>
+<p><a href="https://www.gov.uk/guidance/publishing-accessible-documents" class="uri">https://www.gov.uk/guidance/publishing-accessible-documents</a></p>
+<blockquote>
+<blockquote>
+<h2 id="think-about-format">Think about format</h2>
+<p>Doing this will help your document support as many users as possible and can future-proof your information.</p>
+<p>Publish in HTML format wherever possible so that your documents use your users’ custom browser settings. It can be difficult to make other formats easier to read.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>For example, PDF documents:</p>
+<p>can make your content harder to find, use and maintain do not work well with assistive technologies like screen readers a lot of the time. If your documents do not meet accessibility standards you could be breaking the Equality Act 2010.</p>
+</blockquote>
+</blockquote>
+<p>Aesthetically, you lose interactivity (dygraphs or plotly charts) or movement in your slides (videos or GIFs) with pdfs so if you look through the commits in my Presentation repository you will see me flicking between html to pdf and back to html as I’ve tried this out.</p>
+<h2 id="missing-slide-navigation">Missing slide navigation</h2>
+<p>I was puzzled for a long time why I had published my slides in this blog but the slide navigation was missing. As I consistently fail to read instructions it turned out I needed the line:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class="fu">xaringanExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/xaringanExtra/man/share_again.html">use_share_again</a></span><span class="op">(</span><span class="op">)</span>
+</code></pre>
+</div>
+</div>
+<p>in the presentation slide code. I put this in the code chunk related to libraries (often listed as r libs).</p>
+<p>Because I missed doing this from the beginning there were a few steps I needed to to to get this to publish on the blog. These were:</p>
+<p><em>Presentation repo</em></p>
+<ul>
+<li>Add the line of code to the presentation code</li>
+<li>Knit the presentation</li>
+<li>Commit and push the presentation rmd and html file</li>
+</ul>
+<p><em>Blog repo</em></p>
+<ul>
+<li>Knit the blog post</li>
+<li>Build the website</li>
+<li>Commit and push all changes</li>
+<li>Do a little celebration jig and thank Silvia yet again for helping me out as she let me know this missing line of code in the <a href="nhsrcommunity.slack.com">NHS-R Community Slack Group</a></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

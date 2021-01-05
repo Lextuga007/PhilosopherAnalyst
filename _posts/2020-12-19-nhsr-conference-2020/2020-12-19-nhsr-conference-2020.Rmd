@@ -81,6 +81,51 @@ I also noticed the same box when I knitted xaringan slides and I was using a lin
 
 Unlike using html, the xaringan slides need to have the images, CSS and libraries available to run it. I made the mistake of using two folders for my images but it worked out that I used /img for the slide backgrounds and the /images for the pictures related only to that presentation. 
 
-## Other ways to publish
+## Update...
 
-Knitting to a pdf can be a useful way around needing html or xaringan but this won't work if you have an interactivity (dygraphs or plotly charts) or movement in your slides (videos or GIFs). If you look through the commits in my Presentation repository you will see me flicking between html to pdf and back to html as I've gone along. 
+Silvia kindly shared the [update](https://github.com/yihui/xaringan/blob/master/NEWS.md) about making the xaringan presentations 'self-contained'. I'd used that line of code for this blog originally as I hadn't read the instructions and had wondered if that was why the slide navigation was missing (see the answer to that below!). Testing how 'self-contained' self-contained is I emailed myself just the html and got the text but no formats. Zipping together the html along with the css, img and libs (my names for these) folders did mean the html opened up ok with all the formatting. It's a little like when saving a webpage and a same-named folder appears that is needed for the html to open.
+
+## Reasons not to use pdfs
+
+Using pdfs gets around the need to email out supporting files and folders as it's just one file to send, however, I'm reluctant to use pdfs because of accessibility as much as aesthetics:
+
+https://www.gov.uk/guidance/publishing-accessible-documents 
+
+> >## Think about format
+> >Doing this will help your document support as many users as possible and can future-proof your information.
+> >
+> >Publish in HTML format wherever possible so that your documents use your users’ custom browser settings. It can be difficult to make other formats easier to read. 
+
+> >For example, PDF documents:
+> >
+> >can make your content harder to find, use and maintain do not work well with assistive technologies like screen readers a lot of the time. If your documents do not meet accessibility standards you could be breaking the Equality Act 2010.
+
+
+Aesthetically, you lose interactivity (dygraphs or plotly charts) or movement in your slides (videos or GIFs) with pdfs so if you look through the commits in my Presentation repository you will see me flicking between html to pdf and back to html as I've tried this out. 
+
+## Missing slide navigation
+
+I was puzzled for a long time why I had published my slides in this blog but the slide navigation was missing. As I consistently fail to read instructions it turned out I needed the line: 
+
+```{r line, echo=TRUE, eval=FALSE}
+
+xaringanExtra::use_share_again()
+
+```
+
+in the presentation slide code. I put this in the code chunk related to libraries (often listed as r libs).
+
+Because I missed doing this from the beginning there were a few steps I needed to to to get this to publish on the blog. These were:
+
+_Presentation repo_
+
+* Add the line of code to the presentation code
+* Knit the presentation
+* Commit and push the presentation rmd and html file
+
+_Blog repo_
+
+* Knit the blog post
+* Build the website 
+* Commit and push all changes
+* Do a little celebration jig and thank Silvia yet again for helping me out as she let me know this missing line of code in the [NHS-R Community Slack Group](nhsrcommunity.slack.com)
