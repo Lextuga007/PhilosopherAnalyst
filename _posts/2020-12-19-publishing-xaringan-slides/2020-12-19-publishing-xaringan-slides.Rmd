@@ -9,17 +9,18 @@ output:
   distill::distill_article:
     draft: false
 categories:
-  - SQL
-  - NHSR
-  - Conference
+  - Xaringan
+  - GitHub
 preview: preview.png  
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r intro-pic, fig.height=2, fig.cap="Chafffinch at bird tables"}
+knitr::include_graphics("img/chaffinch-drawing-s.jpg")
+```
 
 # Publishing xaringan slides
 
@@ -28,15 +29,20 @@ This is my first attempt to publish my [NHS-R Community](https://nhsrcommunity.c
 <aside>
 ```{r, out.height=43}
 knitr::include_graphics("https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png")
-
 ```
 </aside>
 
+Unfortunately, it looks like they render better on the index.Rmd file and not on a post. The slides look the same (with lost formats and no interactivity) whether the link is to the self-contained html in a repository on my computer or to the url.
 
 ```{r embed-xaringan-01, echo=FALSE}
-xaringanExtra::embed_xaringan(url = "https://lextuga007.github.io/Presentations/nhsr-conference-2020/index.html", ratio = "16:9")
+xaringanExtra::embed_xaringan(url = "https://lextuga007.github.io/Presentations/nhsr-conference-2020/index.html#1", ratio = "4:3")
 ```
 
+This [RStudio Community](https://community.rstudio.com/t/assets-in-docs-deleted-when-distill-site-is-built/90328/3) conversation helped me realise this is probably something in distill and not something I was doing. In particular, it's where @Apreshill says:
+
+>But also, this is the index.Rmd, not a post, so not entirely sure. I also added this line to my _site.yml, but confess to not testing whether that is required or not for this to work:
+
+I tried adding the line include: ["slides/"] @Apreshill refers to but that didn't solve the formatting.
 
 <aside>
 [Why do I need to learn R when I can use SQL?](https://www.youtube.com/watch?v=5eEaAxeDFRE) </br> time: 1:05:07

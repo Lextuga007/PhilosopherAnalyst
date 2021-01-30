@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-```{r intro-pic}
+```{r intro-pic, fig.cap="Photo of holly"}
 knitr::include_graphics("img/holly.jpg")
 ```
 
