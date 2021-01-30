@@ -97,14 +97,14 @@ Using pdfs gets around the need to email out supporting files and folders as it'
 
 https://www.gov.uk/guidance/publishing-accessible-documents 
 
-> >## Think about format
-> >Doing this will help your document support as many users as possible and can future-proof your information.
-> >
-> >Publish in HTML format wherever possible so that your documents use your users’ custom browser settings. It can be difficult to make other formats easier to read. 
-
-> >For example, PDF documents:
-> >
-> >can make your content harder to find, use and maintain do not work well with assistive technologies like screen readers a lot of the time. If your documents do not meet accessibility standards you could be breaking the Equality Act 2010.
+>## Think about format
+>Doing this will help your document support as many users as possible and can future-proof your information.
+>
+>Publish in HTML format wherever possible so that your documents use your users’ custom browser settings. It can be difficult to make other formats easier to read. 
+>
+>For example, PDF documents:
+>
+>can make your content harder to find, use and maintain do not work well with assistive technologies like screen readers a lot of the time. If your documents do not meet accessibility standards you could be breaking the Equality Act 2010.
 
 
 Aesthetically, you lose interactivity (dygraphs or plotly charts) or movement in your slides (videos or GIFs) with pdfs so if you look through the commits in my Presentation repository you will see me flicking between html to pdf and back to html as I've tried this out. 

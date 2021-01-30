@@ -87,27 +87,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Blog: Philosopher Analyst</title>
 
-  <meta property="description" itemprop="description" content="You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst"/>
+  <meta property="description" itemprop="description" content="A blog of musing by Zoë Turner"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Blog: Philosopher Analyst"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst"/>
+  <meta property="og:description" content="A blog of musing by Zoë Turner"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Blog"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Blog: Philosopher Analyst"/>
-  <meta property="twitter:description" content="You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst"/>
+  <meta property="twitter:description" content="A blog of musing by Zoë Turner"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","listing","categories"]}},"value":[{"type":"character","attributes":{},"value":["Philosopher Analyst"]},{"type":"character","attributes":{},"value":["You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]},{"type":"character","attributes":{},"value":["SQL"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Philosopher Analyst"]},{"type":"character","attributes":{},"value":["A blog of musing by Zoë Turner"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2047,12 +2047,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Philosopher Analyst","description":"You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst","authors":[]}
+{"title":"Philosopher Analyst","description":"A blog of musing by Zoë Turner","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2076,230 +2076,33 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Philosopher Analyst">Philosopher Analyst</h1>
-<a href="posts/2021-01-15-data-ethics/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Philosophy","Ethics"]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 15, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Zoë Turner</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-01-15-data-ethics/img/holly.jpg"/>
-</div>
-<div class="description">
-<h2>Data Ethics</h2>
-<div class="dt-tags">
-<div class="dt-tag">Philosophy</div>
-<div class="dt-tag">Ethics</div>
-</div>
-<p>Philosophers are experts in their field</p>
-</div>
-</a>
-<a href="posts/2020-12-19-publishing-xaringan-slides/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Xaringan","GitHub"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 19, 2020</div>
-<div class="dt-authors">
-<div class="dt-author">Zoë Turner</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2020-12-19-publishing-xaringan-slides/distill-preview.png"/>
-</div>
-<div class="description">
-<h2>Publishing xaringan slides</h2>
-<div class="dt-tags">
-<div class="dt-tag">Xaringan</div>
-<div class="dt-tag">GitHub</div>
-</div>
-<p>Notes on how I published my NHS-R Conference lightning talk</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:Ethics">Ethics</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:GitHub">GitHub</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Philosophy">Philosophy</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Xaringan">Xaringan</a>
-<span class="category-count">(1)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>Philosopher Analyst</h1>
 <!--radix_placeholder_categories-->
-<div class="dt-tags">
-<div class="dt=tag">SQL</div>
-</div>
 <!--/radix_placeholder_categories-->
-<p><p>You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst</p></p>
+<p><p>A blog of musing by Zoë Turner</p></p>
 </div>
 
 
 <div class="d-article">
-<h1 id="philosopher-analyst">Philosopher Analyst</h1>
-<p><img src="index_files/figure-html5/setup-1.png" width="897" /></p>
-<p>I am a Senior Information Analyst working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I’m also involved with the trust’s Ethic Committee and consequently reviving my former interest medical ethics.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="company-logos/NHSRLogo.png" width="100px" /></p>
+</div>
+<p>I am an <a href="https://twitter.com/NHSRCommunity">NHS-R Community</a> Champion and have written a few blogs on R and the Community <a href="https://nhsrcommunity.com/blog/author/z-turner/">here</a>. I also run some of the Community’s Introduction to R and R Studio courses and attended every conference, even speaking at the last couple:</p>
+<p><a href="https://www.youtube.com/watch?v=5eEaAxeDFRE">Why do I need to learn R when I can use SQL?</a> 1:05:07</p>
+<p>I’ve also attended panels on behalf of NHS-R Community:</p>
+<p><a href="https://www.youtube.com/watch?v=wZQW4LP6rwA">Insight 2020 and NHS-R: The importance of R</a></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="company-logos/Apha-Logo.svg" width="100px" /></p>
+</div>
+<p>I am the Non-Executive Director for the <a href="https://twitter.com/Apha_Analysts">Association of Professional Healthcare Analysts</a>, leading specifically on equality, diversity and inclusion.</p>
+<p>Watch me here: <a href="https://www.youtube.com/watch?v=7kIXDlIJpG0">Data challenges in a time of crisis</a></p>
+<h2 id="why-philosopher-analyst">Why Philosopher Analyst?</h2>
+<p>I studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&amp;E data in one job and was hooked on data from then on. I started out using SQL and my journey into learning R started around the same time as NHS-R Community started.</p>
+<p>Find me on <a href="https://twitter.com/Letxuga007">Twitter</a> or <a href="https://uk.linkedin.com/in/zo%C3%AB-turner-9bba4840">LinkedIn</a></p>
+<p>I share my code on <a href="https://github.com/Lextuga007">GitHub</a></p>
+<p>and my work email is <a href="mailto:zoe.turner2@nottshc.nhs.uk">zoe.turner2@notthshc.nhs.uk</a></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
