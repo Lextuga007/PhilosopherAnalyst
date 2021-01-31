@@ -11,7 +11,7 @@ output:
 categories:
   - Xaringan
   - GitHub
-preview: preview.png  
+preview: preview.png 
 ---
 
 ```{r setup, include=FALSE}
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r intro-pic, fig.height=2, fig.cap="Chafffinch at bird tables"}
-knitr::include_graphics("img/chaffinch-drawing-s.jpg")
+knitr::include_graphics("img/chaffinch-drawing-s.PNG")
 ```
 
 # Publishing xaringan slides
@@ -32,7 +32,7 @@ knitr::include_graphics("https://nhsrcommunity.com/wp-content/uploads/2018/02/lo
 ```
 </aside>
 
-Unfortunately, it looks like they render better on the index.Rmd file and not on a post. The slides look the same (with lost formats and no interactivity) whether the link is to the self-contained html in a repository on my computer or to the url.
+Unfortunately, it looks like they render better on the index.Rmd file and not on an article. The slides look the same (with lost formats and no interactivity) whether the link is to the self-contained html in a repository on my computer or to the url.
 
 ```{r embed-xaringan-01, echo=FALSE}
 xaringanExtra::embed_xaringan(url = "https://lextuga007.github.io/Presentations/nhsr-conference-2020/index.html#1", ratio = "4:3")

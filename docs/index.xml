@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Blog</title>
+    <link>https://lextuga007.github.io/PhilosopherAnalyst/</link>
+    <atom:link href="https://lextuga007.github.io/PhilosopherAnalyst/index.xml" rel="self" type="application/rss+xml"/>
+    <description>My Website
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Data Ethics</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics</link>
+      <description>Philosophers are experts in their field</description>
+      <category>Philosophy</category>
+      <category>Ethics</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics</guid>
+      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics/img/holly.PNG" medium="image" type="image/png" width="3968" height="1984"/>
+    </item>
+    <item>
+      <title>Publishing xaringan slides</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides</link>
+      <description>Notes on how I published my NHS-R Conference lightning talk</description>
+      <category>Xaringan</category>
+      <category>GitHub</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides</guid>
+      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides/distill-preview.png" medium="image" type="image/png" width="453" height="551"/>
+    </item>
+  </channel>
+</rss>

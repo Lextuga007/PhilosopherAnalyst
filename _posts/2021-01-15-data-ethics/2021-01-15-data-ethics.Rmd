@@ -22,12 +22,12 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r intro-pic, fig.cap="Photo of holly"}
-knitr::include_graphics("img/holly.jpg")
+knitr::include_graphics("img/holly.PNG")
 ```
 
 20 years after I graduated, I returned to my university to see how things had changed. The buildings hadn't changed but it was a different world inside, and none more striking than the most imposing building on the campus; the library. Now this is a library with some history as it is was at Hull University where Philip Larkin worked as the head librarian and whilst I still have a soft spot for Hull, [Philip Larkin](https://www.theguardian.com/cities/2017/may/30/hull-hole-philip-larkin-poet-love-both-ways) wasn't so enamoured. He wrote:
 
->>“I’m settling down in Hull all right. Every day I sink a little further.”
+>“I’m settling down in Hull all right. Every day I sink a little further.”
 
 The library building is the most imposing building on the campus, grey and tall, but it has a fabulous view from the top floor. I'd spent a bit of time in the library, mainly around the not-actually-that-dusty philosophy books although I did once venture into a section that had books that touched on the occult.^[I had searched for the Devil of Loudon by Aldous Huxley but didn't take it out and, to this day, still haven't read it.]
 
@@ -35,7 +35,7 @@ It was breathtaking how modern everything was inside Brynmor Jones library. Whil
 
 Inevitably, I drifted to the philosophy section and, to my delight, I was greeted with rows upon rows of books. The first journal I picked up was a lucky find as it contained an article called: [Why flatulence is funny](https://www.cambridge.org/core/journals/think/article/abs/why-flatulence-is-funny/0EEB07DDD190C5F7207AEFE632AC275A) and what was even better was that my little one was just at the right age to find the first paragraph utterly hilarious. We giggled loudly, disturbing the studious atmosphere. For your delectation here is the extract:
 
->>Toot. Pass gas. Break wind. Cut the cheese. Float an air biscuit. Burp from behind. Blow the brown horn. The backfire, bant, bucksnort, booty bomb, colon cologne, drifter, fanny bubble, gasser, gurgler, moon beam, nether belch, pants puffer, pooh tune, rip-snort, sphincter whistle, thunder dumpling, tush tickler, and trouser cough. These are synonyms for a bodily function that is as natural as breathing, eating, or sleeping. Yet unlike other physiological functions, the ‘flatus’ is a source of endless humor – perhaps more so than any other subject in human experience. But why are farts funny? That is a question that is both serious and philosophically interesting.
+>Toot. Pass gas. Break wind. Cut the cheese. Float an air biscuit. Burp from behind. Blow the brown horn. The backfire, bant, bucksnort, booty bomb, colon cologne, drifter, fanny bubble, gasser, gurgler, moon beam, nether belch, pants puffer, pooh tune, rip-snort, sphincter whistle, thunder dumpling, tush tickler, and trouser cough. These are synonyms for a bodily function that is as natural as breathing, eating, or sleeping. Yet unlike other physiological functions, the ‘flatus’ is a source of endless humor – perhaps more so than any other subject in human experience. But why are farts funny? That is a question that is both serious and philosophically interesting.
 
 Philosophy is not a dusty old subject, although it's often expected to be just that that. It's a subject that has existed in its own right, as well as integrated into other subjects like religion and science, or with economics and psychology. I even had a lecturer who had studied maths and philosophy which, at the time, I thought was a strange combination. I realise now that philosophy is part of every subject in one way or another and makes sense to be combined with maths because of the overlap of logical and critical thinking. 
 
@@ -63,32 +63,32 @@ In my day I was offered the chance to study metaphysics and ethics and I chose e
 
 Complementing this they released a [short survey](https://docs.google.com/forms/d/e/1FAIpQLSfrjYuBnhvR317xBTxh8kZ2sxQ1hfPqrpg02R62p5Qj9ylJPQ/viewform) for data ethics professionals (all sectors) aimed at identifying these skills. I was surprised that the first question, whilst comprehensively detailed, lacked a point blank tick box for philosophy and it is bundled in with other social science subjects:
 
->>According to you, which of the following skills are the most important in data/AI ethics? Choose up to six. *
->>
-* Ability to quickly read and interpret complex documents from a range of sources and distill to what is relevant
-* *Knowledge of/ background in social science (anthropology, economics, sociology, philosophy etc)*
-* Problem-solving skills
-* Experience translating technical information for a non-technical audience, and vice versa
-* Domain knowledge of existing schools of thought and exemplar models of data ethics in practice
-* Communication skills
-* Data modelling, data cleansing, and data enrichment skills
-* Data literacy
-* Project management skills
-* Networking and engagement skills; working collaboratively across multidisciplinary teams and stakeholder from data science and other areas (policy, social science)
-* Proven IT and mathematical skills
-* Broad policy analysis and evaluation experience
-* Ability to draw together, analyse, and critically evaluate information
-* Sound judgement on relevant information, stakeholders, and value-driven activities
-* Applied maths, statistics, and scientific practices
-* Logical and creative thinking skills
-* Understanding analysis across the product life cycle
-* Quality assurance, validation and data linkage abilities
-* Data engineering and manipulation
-* Other:
+>According to you, which of the following skills are the most important in data/AI ethics? Choose up to six. *
+>
+>* Ability to quickly read and interpret complex documents from a range of sources and distill to what is relevant
+>* *Knowledge of/ background in social science (anthropology, economics, sociology, philosophy etc)*
+>* Problem-solving skills
+>* Experience translating technical information for a non-technical audience, and vice versa
+>* Domain knowledge of existing schools of thought and exemplar models of data ethics in practice
+>* Communication skills
+>* Data modelling, data cleansing, and data enrichment skills
+>* Data literacy
+>* Project management skills
+>* Networking and engagement skills; working collaboratively across multidisciplinary teams and stakeholder from data science and other areas (policy, social science)
+>* Proven IT and mathematical skills
+>* Broad policy analysis and evaluation experience
+>* Ability to draw together, analyse, and critically evaluate information
+>* Sound judgement on relevant information, stakeholders, and value-driven activities
+>* Applied maths, statistics, and scientific practices
+>* Logical and creative thinking skills
+>* Understanding analysis across the product life cycle
+>* Quality assurance, validation and data linkage abilities
+>* Data engineering and manipulation
+>* Other:
 
 I liked some of these points as they look like they are breaking down what philosophical thought demands but none really felt like what I learned in my degree. Yes, I learned to _quickly read and interpret complex documents from a range of sources and distill to what is relevant_ but I used the skills listed in the [Times Higher Education](https://www.timeshighereducation.com/student/subjects/what-can-you-do-philosophy-degree) to be able to do it:
 
->>The skills learned on a philosophy degree, including clear and analytical thinking, persuasive writing and speaking, innovative questioning and effective reasoning, give a solid foundation for entering the workforce and are beneficial in careers that require problem-solving and assessing information from various angles.
+>The skills learned on a philosophy degree, including clear and analytical thinking, persuasive writing and speaking, innovative questioning and effective reasoning, give a solid foundation for entering the workforce and are beneficial in careers that require problem-solving and assessing information from various angles.
 
 #### Balancing domain knowledge with skill
 
