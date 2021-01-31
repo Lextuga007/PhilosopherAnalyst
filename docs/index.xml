@@ -7,7 +7,17 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Adding Disqus to distill blogs</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs</link>
+      <description>Notes on adding comments to distill pages.</description>
+      <category>Distill</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs</guid>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs/img/frost-on-wood.png" medium="image" type="image/png" width="4000" height="3000"/>
+    </item>
     <item>
       <title>Data Ethics</title>
       <dc:creator>Zoë Turner</dc:creator>

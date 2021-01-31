@@ -1,0 +1,34 @@
+---
+title: "Adding Disqus to distill blogs"
+description: |
+  Notes on adding comments to distill pages.
+author:
+  - name: Zoë Turner
+date: 01-31-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: false
+categories:
+  - Distill
+preview: preview.png  
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r intro-pic, fig.cap="Photo of frost on wood"}
+knitr::include_graphics("img/frost-on-wood.PNG")
+```
+
+# Inspiration
+
+When searching for "distill blog doesn't show xaringan slides" I stumbled across this [blog](https://www.shamindras.com/posts/2019-07-31-shrotriya2019distillpt2/) by Shamindra Shrotriya where I found that it's possible to add comments to the distill pages. 
+
+## Issues with images
+
+I've never used Disqus before but I followed Shamindra's blog instructions and it worked. The only thing to note is that images must be in PNG format. Thankfully I'd only included a few so I could convert them by opening them in Microsoft Paint and saving them as .PNG. 
+
+I saved as .PNG rather than .png as @tomjemmett had had to set my files to this in the [NHS-R Community GitHub](https://github.com/nhs-r-community/Conference_2020/commit/523e51b1b7fbb3c6a0de6b88dcd27dda6cc0e5d3) to get the xaringan slides there to render. I thought it best to follow this as good practice.
