@@ -1,0 +1,139 @@
+---
+title: "Creating sample datetime data in R"
+description: |
+  How to produce a reproducible example (reprex) for datetime 
+author:
+  - name: Zoë Turner
+date: 02-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: false
+categories:
+  - Reprex in R
+preview: preview.png  
+---
+
+```{r intro-pic, fig.cap="Frosty leaves", echo= FALSE}
+knitr::include_graphics("img/leaves-frost.PNG")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# The product of my drifting mind
+
+I was writing a blog for my [team's blog](https://cdu-data-science-team.github.io/team-blog/) about working in the open and midway I drifted into writing code. For some reason I had a burning desire to highlight a common issue in SQL with the use of BETWEEN for dates and then ended up spending working out how to create fake date/time data in R. 
+
+Reading through my team blog I realised it didn't make sense to have the R data creation code in it so I've promoted it to its own blog - this! The SQL thing with BETWEEN will also get its own blog in due course. 
+
+#### Reproducible examples
+
+I like producing reprexes^[Reproducible example or data that has been copied or made up to help explain a problem in data] and I have a few [gists](https://gist.github.com/Lextuga007) where I've answered some questions from places like [Stackoverflow](https://stackoverflow.com/) and [R Studio Community](https://community.rstudio.com/) by first creating reprexes. These were questions which were removed, unfortunately, before I had a chance to send the reply. One time I had an answer, with a reprex, in just 20 minutes and was about to post, but it had been deleted! I wasn't prepared to lose that code so I posted it in my own GitHub gist and I've used the reprex code many times since. 
+
+#### Reproducing what?
+
+I was trying to recreate the SQL date time format YYYY-MM-DD hh:mm:ss[.nnn] that I have in my work's data warehouse. For this example I've only reproduced a random sample in the SmallDateTime YYYY-MM-DD hh:mm:ss format.
+
+#### Losing the code
+
+I spent a long time trying to work out how to randomly sample the constituent parts of a date time (including hours, minutes and seconds), even using base R code and the chron package to get hm (but not s)^[I used this blog http://datacornering.com/how-to-generate-time-intervals-or-date-sequence-in-r/].
+
+By the end of the day I was very tired and I did a terrible thing: I cut the code from an Untitled and unsaved file, moved to another R project and then copied something else. I didn't stop there. Oh no, I then copied and pasted several things then, when I finally went to paste what I'd cut originally it was, of course, gone. 
+
+```{r echo= FALSE, out.width = "50%"}
+knitr::include_graphics("https://media.giphy.com/media/dCLbnsZVBdeGB9rBma/giphy.gif")
+```
+
+
+#### Windows history clipboard
+
+Turns out Windows 10 has a clipboard history but you have to switch it on by going to Windows settings/Clipboard settings and switch on history. 
+
+I looked for a GIPHY for "nice to know" but none conveyed the right level of sarcasm for that phrase.
+
+#### Every cloud has a silver lining and all that...
+
+Frantically re-writing code after deleting huge swathes means that you do get an opportunity to improve the code. At least, that's what I told myself. And so I re-wrote what I could remember and realised I'd missed the seconds and also how I'd not even checked the {lubridate} package which does indeed produce sequential dates and time which can be sampled:
+
+```{r}
+library(lubridate)
+
+lubridate_dhms <- data.frame(
+  hms = sample(seq(ymd_hms("2020-1-1 0:00:00"), ymd_hms("2021-1-1 0:00:00"), 
+                    by = "hour"), 15)
+)
+```
+
+But the by = "" only accepts hour, not minute or second so those are all 00:00.
+
+#### Help!!!!
+
+By this point I was a bit fed up so I did what all good coders who have exploited the internet for help do - I asked my NHS-R Community colleagues on [Slack](nhsrcommunity.slack.com):
+
+> Is there any way to generate random hours, minutes and seconds for made-up data? 
+
+And I included examples of what I'd attempted.
+
+Thus ensued a great thread with my boss, [Chris Beeley](https://twitter.com/ChrisBeeley), who answered the question within minutes.
+
+```{r}
+
+base_r_dhms <- data.frame(
+  sample(seq(as.POSIXlt("2020-10-01"),
+      as.POSIXlt("2020-10-10"), by = 1), 15)
+)
+
+```
+
+I asked what the by = 1 means and Chris confirmed this was a 1 second interval so the seq(...) creates the sequence at 1 seconds and then the sample() takes, in this case, 15 data points from this sequence.
+
+It's also possible to write "s" or "sec" in place of the 1:
+
+```{r}
+
+base_r_dhms_same <- data.frame(
+  sample(seq(as.POSIXlt("2020-10-01"),
+      as.POSIXlt("2020-10-10"), by = "s"), 15)
+)
+
+# or
+
+base_r_dhms_same <- data.frame(
+  sample(seq(as.POSIXlt("2020-10-01"),
+      as.POSIXlt("2020-10-10"), by = "sec"), 15)
+)
+
+```
+
+Because I'd also asked about {lubridate} generating random minutes and seconds, and Chris was having too much fun with this he answered that too:
+
+```{r }
+
+# using the code I shared that generates random dates and hours
+
+hour_min_sec <- data.frame(
+  hms = seq(ymd_hms("2020-1-1 0:00:00"), ymd_hms("2021-1-1 0:00:00"), 
+                    by = "hour")
+)
+
+# updating the data frame with random seconds and updating the data
+lubridate::second(hour_min_sec$hms) <- sample(0 : 59, nrow(hour_min_sec), replace = TRUE)
+
+# updating the data frame with random minutes and updating the data
+lubridate::minute(hour_min_sec$hms) <- sample(0 : 59, nrow(hour_min_sec), replace = TRUE)
+
+```
+
+#### Happy ending
+
+In response to my saying:
+
+>You won't believe how long I've been working on this and how many lines of code I have written!
+
+Chris said:
+
+>I bet you learned a lot though
+
+And it's true.
