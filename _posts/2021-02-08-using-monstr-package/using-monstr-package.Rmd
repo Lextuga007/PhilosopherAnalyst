@@ -1,0 +1,235 @@
+---
+title: "Using the monstR package"
+description: |
+  Gettting regional deaths from the monstR package
+author:
+  - name: Zoë Turner
+date: 02-08-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: false
+---
+
+```{r intro-pic, fig.cap="Photo of snowdrops"}
+knitr::include_graphics("img/snowdrops.jpg")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+
+library(monstR)
+library(tidyverse)
+
+```
+
+### Moving away from messy solutions
+
+I've been using weekly provisionally recorded deaths from ONS for a number of years and it started off with getting the data directly and copying, by hand (the horror!), the one bit I needed from the East Midlands into a long table which had been started by a colleague. This was the easiest solution at the time but, as this these things often go, the easiest solution quickly becomes the hardest to maintain.
+
+### Various iterations
+
+The code I've used has various iterations with the first being used for the ons_mortality dataset that is included in the {[NHSRdatasets](https://cran.r-project.org/web/packages/NHSRdatasets/index.html)} package. The intention was always for it to be a training dataset, not a reporting dataset, so the data only cover 2010 to 2019 and I would top up the data with newly released information from ONS by running the code used to build the {NHSRdatasets} ons_mortality table for weeks as they were released.
+
+I wrote a [vignette](https://cran.r-project.org/web/packages/NHSRdatasets/vignettes/ons_mortality.html) on how I built the ons_mortality dataset to show the approach I took to building the data. As my coding in R has improved, I've since adapted that code to include:
+
+* functions to clean the data
+* code to scrape from the website where the name changes (each week there is a new url) 
+* functions to extract all the tabbed sheets from the downloads and 
+* functions to load multiple csvs
+
+### ONS API
+
+The code was based on the ever-changing weekly urls throughout 2020, and towards the end of January 2021 I realised that I had muddled the data as I was getting 2021 spreadsheets and calling them 2020.  
+
+Going back over this code, with all it's intricate cleaning code, was a bit daunting so I thought this would be a perfect time to have a go with the Health Foundation ONS API package called (fantastically!) {[monstR](https://github.com/HFAnalyticsLab/monstR)}.
+
+### What I discovered
+
+First of all I tried this function: ons_available_datasets() and I got a lot of information in the console. The text was overwhelming and I wasn't sure what I was looking at. I was just about to write an issue question (the contributors are lovely and have labelled a previous issue of mine as a [question](https://github.com/HFAnalyticsLab/monstR/issues/42) and answered it) when I had the breakthrough thought of just popping it into an object and lo, it is actually a data frame that I was looking at in the console. 
+
+```{r}
+library(monstR)
+
+df <- ons_available_datasets()
+
+view(df)
+
+```
+
+The next bit was to look for the data I wanted specifically and, luckily for me, the vignette already refers to it: weekly-deaths-region. I wasn't sure what all the functions/verbs are doing but the notes said a folder is created.
+
+```{r}
+
+monstr_pipeline_defaults() %>%  # Uses the monstr 'standards' for location and format
+  ons_datasets_setup() %>% 
+  ons_dataset_by_id("weekly-deaths-region") %>%
+  ons_download(format="csv") %>%
+  monstr_read_file() %>%  
+  monstr_clean() %>%
+  monstr_write_clean(format="all")
+
+```
+
+I searched for this folder for ages. The text output doesn't say exactly where it goes:
+
+>INFO [2021-02-08 21:18:54] Edition not specified, defaulting to  latest version
+>INFO [2021-02-08 21:18:54] Retrieving dataset metadata from https://api.beta.ons.gov.uk/v1/datasets/weekly-deaths-region/editions/covid-19/versions/16
+>INFO [2021-02-08 21:18:55] Downloading data from https://download.beta.ons.gov.uk/downloads/datasets/weekly-deaths-region/editions/covid-19/versions/16.csv
+>INFO [2021-02-08 21:18:55] File created at /data/raw/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v16.csv 
+
+>-- Column specification >------------------------------------------------------------------
+>cols(
+>  V4_1 = col_double(),
+>  `Data Marking` = col_character(),
+>  `calendar-years` = col_double(),
+>  Time = col_double(),
+>  `administrative-geography` = col_character(),
+>  Geography = col_character(),
+>  `week-number` = col_character(),
+>  Week = col_character(),
+>  `recorded-deaths` = col_character(),
+>  Deaths = col_character()
+>)
+>
+>INFO [2021-02-08 21:18:55] Writing csv data to >/data/clean/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v16.csv
+>
+>INFO [2021-02-08 21:18:55] Writing xlsx data to >/data/clean/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v16.xlsx
+>
+>INFO [2021-02-08 21:18:55] Writing rds data to >/data/clean/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v16.rds
+>[1] TRUE
+
+And as a search on Windows 10 files takes ages I couldn't find the folder. After hours (yes, I'm not sure why it took that long either!) I eventually found it by closing down the project and just saving from default R Studio window. From here I got the folder to load:
+
+```{r}
+pathway <- "C:\data\clean\ons\weekly-deaths-region\2010-19"
+```
+
+But when searching for weekly-deaths-region I had found a previous download in a project folder so I'm a bit baffled how it works. I've raised an issue on the GitHub to ask for folder pathway to be highlighted or just have the data be loaded as an object rather than saving, which is my preferred option particularly as the files structure is so long: <kbd>/data/clean/ons/weekly-deaths-region/covid-19/</kbd>.
+
+### Looking at the data
+
+After loading the data (I chose the .rds file to load but there also an .xlsx and a .csv) I filtered it to the area I wanted:
+
+```{r}
+
+readRDS("C:/data/clean/ons/weekly-deaths-region/2010-19/weekly-deaths-region-v1.rds")
+
+mortality <- `weekly-deaths-region-v1` %>% 
+  filter(geography == "East Midlands")
+
+```
+
+
+The data only has data from 2010 to 2019 (given that's the file name it's not surprising but I missed that!) and makes sense as 2020 was when the data output changed to take into account Covid-19 deaths. There are other editions and the issue/question I mentioned before was answered by Emma Vestesson with an extra bit of code specifying editions. 
+
+```{r}
+
+# find 'editions'
+
+ons_available_editions("weekly-deaths-region") 
+
+```
+
+Prints to console
+
+* 2010-19 - what I'd already downloaded
+* covid-19 - what I need
+
+The code to get 2020 and currently added deaths is:
+
+```{r}
+monstr_pipeline_defaults() %>%  # Uses the monstr 'standards' for location and format
+  ons_datasets_setup() %>% 
+  ons_dataset_by_id("weekly-deaths-region", edition = "covid-19") %>% #<<
+  ons_download(format="csv") %>%
+  monstr_read_file() %>%  
+  monstr_clean() %>%
+  monstr_write_clean(format="all")
+```
+
+Usefully, and perhaps why this is saved to folders rather than loaded as objects, this creates a folder in the same area as the other code: <kbd>C:/data/ons/weekly-deaths-region/covid-19</kbd> and here I get v16 and v17 data.
+
+```{r}
+readRDS("C:/data/clean/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v16.rds")
+
+readRDS("C:/data/clean/ons/weekly-deaths-region/covid-19/weekly-deaths-region-v17.rds")
+```
+
+Again, filtering down to make it easier to see what data I have for the region I'm looking at as "East Midlands" and also the recorded_deaths as "total-registered-deaths" as this data includes "deaths-involving-covid-19-occurrences" which, in this case, I don't want:
+
+```{r}
+
+mortality_v16 <- `weekly-deaths-region-v16` %>% 
+  filter(geography == "East Midlands",
+         recorded_deaths == "total-registered-deaths")
+  
+mortality_v17 <- `weekly-deaths-region-v17` %>% 
+  filter(geography == "East Midlands",
+         recorded_deaths == "total-registered-deaths")
+
+```
+
+#### Two versions
+
+Both have 2020 and 2021 data and return the same number of obs. It may be that something has changed in the versions in a different area of the data as when I use the package {dataCompareR} I confirmed this data extraction is exactly the same:
+
+```{r}
+library(dataCompareR)
+
+# This needs a common identifier, which there isn't one in the objects so I've ordered and then added a row_number:
+
+mortality_v16 <- `weekly-deaths-region-v16` %>% 
+  filter(geography == "East Midlands",
+         recorded_deaths == "total-registered-deaths") %>% 
+  arrange(week_number,
+          calendar_years) %>% 
+  mutate(rn = row_number())
+  
+mortality_v17 <- `weekly-deaths-region-v17` %>% 
+  filter(geography == "East Midlands",
+         recorded_deaths == "total-registered-deaths") %>% 
+  arrange(week_number,
+          calendar_years) %>% 
+  mutate(rn = row_number())
+
+# dataCompareR code
+
+Compared <- rCompare(mortality_v16, mortality_v17, key = "rn")
+
+# I like to save this because I still have to get my head around using lists and this function saves and opens an html at the same time
+
+saveReport(Compared, reportName = "comparing")
+
+```
+
+It makes sense to use the latest version, just in case, and so I need to add the 2010-2019 data for recorded_deaths to the 2020-2021 v17 data:
+
+```{r}
+
+# code copied from earlier chunks to explain the process so it's all in one area
+
+mortality_v1 <- `weekly-deaths-region-v1` %>% 
+  filter(geography == "East Midlands")
+
+mortality_v17 <- `weekly-deaths-region-v17` %>% 
+  filter(geography == "East Midlands",
+         recorded_deaths == "total-registered-deaths",
+         !is.na(v4_1)) # not all dates have counts just like the website spreadsheets
+
+mortality_all_years <- mortality_v1 %>% 
+  rbind(mortality_v17)
+
+```
+
+Interestingly, at the time of writing the latest date was week 1 of 2021 but I am writing in week 4 so there appears to be a delay in this data.
+
+#### The value of APIs
+
+APIs are a great way of getting data as it's from the source and can be updated according to any changes that source holder makes. The difficulty with them is they have their own technological language but R packages are a nice way around that if you are familiar with R.
+
+I think the package looks very promising and could do with more vignettes as I'm pretty sure I wouldn't have got this far with it if I were very early on in using R. Saying that, contribution is really easy as the Health Foundation team are great at paving the way for open source working.
+
+#### Other links
+
+The weekly provisional deaths are published [here](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/weeklyprovisionalfiguresondeathsregisteredinenglandandwales) also monthly deaths at a lower regional level is available [here](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/monthlyfiguresondeathsregisteredbyareaofusualresidence). These are not provisional deaths so can be useful for more accurate tracking but the format of the spreadsheets has changed considerably over time. [This](https://github.com/CDU-data-science-team/ONSDataCleansing/blob/master/R/mortalityMonthlyONS.R) was my attempt at tidying it.
