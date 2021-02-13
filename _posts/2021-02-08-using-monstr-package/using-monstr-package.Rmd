@@ -9,9 +9,13 @@ output:
   distill::distill_article:
     self_contained: false
 draft: false
+categories:
+  - ONS data
+  - R
+preview: preview.png  
 ---
 
-```{r intro-pic, fig.cap="Photo of snowdrops"}
+```{r intro-pic, echo=FALSE, fig.cap="Photo of snowdrops"}
 knitr::include_graphics("img/snowdrops.jpg")
 ```
 
