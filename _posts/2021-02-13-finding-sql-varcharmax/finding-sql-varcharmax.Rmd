@@ -11,7 +11,7 @@ output:
 draft: false
 categories:
   - SQL
-  - R
+  - Error in R
 preview: preview.png  
 ---
 
