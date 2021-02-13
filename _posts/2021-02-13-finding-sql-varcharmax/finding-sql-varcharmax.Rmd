@@ -1,0 +1,106 @@
+---
+title: "Finding SQL varchar(max)"
+description: |
+  SQL code to find the columns of max that need to be moved to the end of code for importing to R
+author:
+  - name: Zoë Turner
+date: 02-13-2021
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+categories:
+  - SQL
+  - R
+preview: preview.png  
+---
+
+```{r intro-pic, echo=FALSE, out.height="50%", fig.cap="Photo of tree branches in silohette"}
+knitr::include_graphics("img/tree-branch-silohette.PNG")
+
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+# Import problems
+
+```{r eval=TRUE, echo=FALSE, fig.cap="Tweet: Dates stored as varchar is the SQL equivalent of 'red pants in the white wash'"}
+knitr::include_graphics("img/john-mackintosh-tweet.PNG")
+```
+
+@_JohnMackintosh posted in Twitter about his 'red pants in the wash' being those date columns that are in fact varchar(). I've been very lucky as our data warehouse people have consistently formatted dates in the SQL tables including my favourite integer yyyymmdd format which beautifully imports into R with no issues.
+
+What I have found though, which is my 'red sock in the wash', is varchar(max) or nvarchar(max) data which, it seems, causes an import error unless these columns are placed at the **end** of the select script.
+
+## My sock
+
+The first time I noticed this, it was because of a table I had built myself. I had put in a column for comments and naturally went for varchar(max). To solve the problem I just changed the data type for the column - because I could.
+
+## Others' socks
+
+The next time I encountered this, which wasn't too long after, it was in a database I couldn't update so I found my import scripts to R failing with an error:
+
+> Error in result_fetch([res\@ptr](mailto:res@ptr){.email}, n) : nanodbc/nanodbc.cpp:3011: 07009: [Microsoft][ODBC SQL Server Driver]Invalid \>Descriptor Index Failed to execute SQL chunk
+
+which isn't really descriptive but searching for the error brought [this](https://github.com/r-dbi/odbc/issues/86) up for the ODBC package:
+
+```{r eval=TRUE, echo=FALSE, fig.cap="GitHub Issue: Short story is this is a bug in the MIcrosoft Driver with varchar(max) columns and they need to be at the end of the select query to work."}
+knitr::include_graphics("img/git-hub-issue.PNG")
+```
+
+## Finding the socks
+
+Some of the tables I was working with have nearly 100 columns and whilst I can scan through for them, I've recently had to import about 20 tables so this would be long-winded.
+
+First, find your data type number:
+
+```{sql }
+
+-- USE database_example
+
+SELECT system_type_id, name
+FROM sys.types
+WHERE system_type_id = user_type_id
+
+```
+
+Then when you know what varchar(max) or even nvarchar(max) is listed under for your own database search for it with this:
+
+```{sql }
+
+-- USE database_example
+
+SELECT
+    SchemaName = s.name
+    ,o.type_desc
+    ,ObjectName = o.name
+    ,ColumnName = c.Name
+FROM sys.objects AS o
+LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
+LEFT JOIN sys.all_columns AS c ON o.object_id = c.object_id
+WHERE c.system_type_id IN (231, 167)
+AND c.max_length = -1
+
+--Other useful code to restrict what is returned
+AND s.name IN ('schema_name') -- restrict to the schema
+AND o.type_desc = 'VIEW' -- or USER_TABLE 
+AND o.name LIKE '%table_name%' -- or use = 'precise_table_name'
+```
+
+## Moving the socks
+
+Unfortunately, now I can't use the really straight forward script:
+
+```{sql }
+
+SELECT *
+FROM schema.Table
+```
+
+and instead I have to list out all 100 columns and move those that are varchar(max) to the end. Still, this code saves lots of peering at the screen.
+
+```{r eval=TRUE, echo=FALSE, fig.cap="Happy bouncing blue and white sock"}
+knitr::include_graphics("https://media.giphy.com/media/xT0xesTIvqnaDu38cg/giphy.gif")
+```
