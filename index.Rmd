@@ -20,7 +20,7 @@ leaf <- image_read("img/leaf.jpg", density = NULL, depth = NULL, strip = FALSE)
 
 leaf_credit <- image_annotate(
   leaf, 
-  text = "Credit: Zoë and Alys Turner 2020", size = 12, 
+  text = "Credit: Zoë and A. Turner 2020", size = 12, 
   location = "+50+100",
   gravity = "southeast",
   color = "white",

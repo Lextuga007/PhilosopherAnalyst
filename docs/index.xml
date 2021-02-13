@@ -7,12 +7,25 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 08 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Finding SQL varchar(max)</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</link>
+      <description>SQL code to find the columns of max that need to be moved to the end of code for importing to R</description>
+      <category>SQL</category>
+      <category>R</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</guid>
+      <pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax/img/tree-branch-silohette.PNG" medium="image" type="image/png" width="2220" height="2400"/>
+    </item>
     <item>
       <title>Using the monstR package</title>
       <dc:creator>Zoë Turner</dc:creator>
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package</link>
       <description>Gettting regional deaths from the monstR package</description>
+      <category>ONS data</category>
+      <category>R</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package</guid>
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package/img/snowdrops.jpg" medium="image" type="image/jpeg"/>
