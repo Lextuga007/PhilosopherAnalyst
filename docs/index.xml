@@ -47,7 +47,8 @@
       <dc:creator>Zoë Turner</dc:creator>
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r</link>
       <description>How to produce a reproducible example (reprex) for datetime</description>
-      <category>Reprex in R</category>
+      <category>R</category>
+      <category>Generate data</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r</guid>
       <pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r/img/leaves-frost.png" medium="image" type="image/png" width="2997" height="3808"/>

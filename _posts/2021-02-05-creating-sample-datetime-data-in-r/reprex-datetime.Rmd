@@ -10,7 +10,8 @@ output:
     self_contained: false
 draft: false
 categories:
-  - Reprex in R
+  - R
+  - Generate data
 preview: preview.png  
 ---
 
