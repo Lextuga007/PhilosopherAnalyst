@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2021-02-18-compare-sql-and-r-code/",
+    "title": "Compare SQL and R code",
+    "description": "Generating sequential numbers code in SQL compared to R",
+    "author": [
+      {
+        "name": "Zoë Turner",
+        "url": {}
+      }
+    ],
+    "date": "2021-02-18",
+    "categories": [
+      "SQL",
+      "R",
+      "Generate data"
+    ],
+    "contents": "\r\n\r\n\r\n\r\nFigure 1: Close up of lichen on a tree branch\r\n\r\n\r\n\r\nGenerating data\r\nWhen I was preparing a talk for the 2020 NHS-R Community conference on Why do I need to learn R when I can use SQL? I realised that I had never really created any data in SQL like I was doing in R. It was quite fun writing out the code to generate data in both so today, as I was going through old files and tidying them up, I found some SQL code to generate sequential numbers and I wanted to put it somewhere. This seems a good place to put it and also take the opprtunity to compare it to R.\r\nGenerate sequential numbers in SQL\r\nGenerate numbers 1 to 20 sequentially in SQL1.\r\n\r\n\r\n;WITH CTE AS  \r\n(  \r\n SELECT 1 AS number  \r\n \r\n UNION ALL  \r\n \r\n SELECT number + 1 \r\n FROM CTE \r\n WHERE number <20  \r\n)  \r\n  \r\nSELECT * \r\nFROM CTE \r\n\r\nCompare to R\r\n\r\n\r\nseq(1:20)\r\n\r\n\r\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20\r\n\r\nGenerate random numbers SQL\r\n\r\n\r\n-------------------------------------\r\n-- Generate a set of random numbers\r\n-- (values between 0 and 1000)\r\n-------------------------------------\r\nWITH RandomNumbers (RowNumber, RandomNumber) AS (\r\n    -- Anchor member definition\r\n    SELECT  1                         AS RowNumber, \r\n            RAND( CHECKSUM( NEWID())) AS RandomNumber\r\n    UNION ALL\r\n    -- Recursive member definition\r\n    SELECT  rn.RowNumber + 1          AS RowNumber, \r\n            RAND( CHECKSUM( NEWID())) AS RandomNumber\r\n    FROM RandomNumbers rn\r\n    WHERE rn.RowNumber < 10\r\n)\r\n-- Statement that executes the CTE\r\nSELECT  rn.RowNumber                     AS RowNumber,\r\n        ROUND(rn.RandomNumber * 1000, 0) AS RoundedRandomNumber\r\nFROM RandomNumbers rn;\r\nGO\r\n\r\nThanks to https://www.codeproject.com/Tips/811913/Generating-a-set-of-random-numbers-in-SQL-Server\r\nGenerate random numbers R\r\n\r\n\r\nsample(seq(1:100), 20)\r\n\r\n\r\n [1] 21 89 26 71 28 13 73 61 23 92 43  2 41 63 74 84 82 51 11 54\r\n\r\nConclusion\r\nI couldn’t have typed out the SQL code from memory and although I had a fair idea that I needed to still use the CTE and restrict by an additional row_number, I gave in easily and looked up code to do this. All in all, it was going to take more thinking time than I wanted to give it and, compared to R… well, there is no comparison. It’s a memorable short piece of base R code.\r\n\r\n\r\n\r\n\r\nTo run this will require a connection to a SQL server↩︎\r\n",
+    "preview": "posts/2021-02-18-compare-sql-and-r-code/img/lichen-on-branch.jpg",
+    "last_modified": "2021-02-18T16:37:16+00:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-02-13-finding-sql-varcharmax/",
     "title": "Finding SQL varchar(max)",
     "description": "SQL code to find the columns of max that need to be moved to the end of code for importing to R",
