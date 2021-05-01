@@ -1,0 +1,121 @@
+---
+title: "Creating a caseload over time in R"
+description: |
+  How to count referrals/patients/anything between two dates in a given period of time.
+author:
+  - name: Zoë Turner
+date: 05-01-2021
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - Generate data
+  - R
+preview: preview.png  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = TRUE)
+```
+
+```{r intro-pic, fig.cap="Photo of dark pink tee blossom", echo=FALSE}
+knitr::include_graphics("img/dark-pink-blossom.jpg")
+```
+
+### The puzzle
+
+My wonderful colleague [Lori](https://analystinthewild.wordpress.com/) asked a question on some analysis that I hadn't really considered for a long time but I had spent an inordinate amount of time solving a few years ago. She wanted to assess caseload^[also known as open referrals but this can be anything with a start and end date] over time to see if things had changed.
+
+### The logic
+
+The logic of finding people is summed up nicely here:
+
+<img src="img/caseload-logic.png" alt="A picture of a time period with 6 different patients explained in the next paragraph"/>
+
+^[The link no longer works but I've emailed AphA about the document which was here <https://www.aphanalysts.org/wp-content/uploads/2016/08/JOIS_2016_038_Diagnosing_the_Flow_Constraint_i.pdf>]
+
+It covers all the scenarios of a particular time period:
+
+1.  Who was open before the period and still open in the period
+2.  Who was open and closed in the period
+3.  Who was open in the period but closed outside of the period
+4.  Who was open before the period and closed after the period
+
+And needs to exclude those who are:
+
+1.  Open and closed before the period
+2.  Open and closed after the period
+
+If the period of time you are looking for is repeated, so over several years or several months, thoughts may turn to some sort of loop to repeatedly count the people.
+
+Stop!
+
+### The secret
+
+It's all in the dates. The solution is to create an observation, a row essentially, for every date between the start and end dates. This then offers the flexibility to count by any period.
+
+### Word of warning
+
+Note that tables can be huge if you are working with large datasets which cover long periods of time and are creating observations at the day level rather than month or year. Even so, R coped well with a dataset that had 18.5k over several years, ending up as 5,5 million observations. It took about 30 seconds to complete but if you find things are unbearably slow the options are either to increase RAM capacity, use the power of a SQL server, or the other options may be to recode using other packages like [data.table](https://stackoverflow.com/questions/43483497/data-table-equivalent-of-tidyrcomplete).
+
+### Code solution
+
+#### Create some data
+
+``` {r}
+library(lubridate)
+library(tidyverse)
+
+set.seed(130) # so the numbers generated will replicate
+
+# create random start and end dates and ids which can be repeated
+data <- data.frame(
+  start_date = sample(seq(as.Date('2019/01/01'), as.Date('2021/01/01'), by = "day"), 300),
+  end_date = sample(seq(as.Date('2019/01/01'), as.Date('2021/01/01'), by = "day"), 300),
+  patient_id = floor(runif(300, min = 1, max = 300))
+)
+
+# Add a referral_id which is realistic and also because a patient_id can have multiple dates generated like patient_id 10 for example
+
+data_filtered <- data %>% 
+  filter(end_date > start_date) %>% 
+  group_by(patient_id) %>% 
+  mutate(referral_id = row_number(start_date))
+```
+
+#### Fill in the dates between start and end date
+
+The function that gets all the dates betweeen the start and end date is complete() from the tidyr package (part of tidyverse). In this case the code is creating a sequence using seq.Date and filling in by day. This could be by month or by year but for this example it's by day as it's not too big a dataset and gives greater flexibility on the later counts which are by month and then by year.
+
+```{r}
+    # Create an observation for every date between the start and end date 
+    data_expanded <- data_filtered %>%
+      group_by(patient_id,
+               referral_id) %>% 
+      pivot_longer(cols = ends_with("date"),
+                   names_to = "caseload",
+                   values_to = "dates") %>% 
+      complete(dates = seq.Date(min(dates), max(dates), by="day")) %>% 
+      ungroup() # affects any counts or summarising later
+```
+
+#### Count the observations
+
+By month and year
+
+``` {r}
+data_expanded %>% 
+  mutate(month_year = lubridate::floor_date(dates, "1 month")) %>% 
+  group_by(month_year) %>% 
+  summarise(count = n_distinct(patient_id, referral_id))
+```
+
+By year
+
+``` {r}
+data_expanded %>% 
+  mutate(year = lubridate::year(dates)) %>% 
+  group_by(year) %>% 
+  summarise(count = n_distinct(patient_id, referral_id))
+```

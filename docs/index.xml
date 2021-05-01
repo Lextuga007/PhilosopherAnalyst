@@ -7,7 +7,18 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 18 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Creating a caseload over time in R</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</link>
+      <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
+      <category>Generate data</category>
+      <category>R</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</guid>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r/img/dark-pink-blossom.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Compare SQL and R code</title>
       <dc:creator>Zoë Turner</dc:creator>
