@@ -7,7 +7,17 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Creating a caseload over time in SQL</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</link>
+      <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
+      <category>SQL</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</guid>
+      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql/img/pink-tulip.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Creating a caseload over time in R</title>
       <dc:creator>Zoë Turner</dc:creator>
