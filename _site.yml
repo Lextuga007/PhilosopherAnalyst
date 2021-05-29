@@ -12,6 +12,8 @@ navbar:
       href: about.html
     - icon: fab fa-github
       href: https://github.com/Lextuga007
+    - icon: fa fa-rss
+      href: index.xml
   creative_commons: CC BY
   twitter: 
     site: "@Letxuga007"
