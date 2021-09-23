@@ -33,5 +33,5 @@ leaf_credit <- image_annotate(
 
 `r leaf_credit`
 
-I am a Senior Information Analyst working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I'm also involved with the trust's Ethic Committee and consequently reviving my former interest medical ethics.
+I am a Data Scientist working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I'm also involved with the trust's Ethic Committee and consequently reviving my former interest medical ethics.
 
