@@ -7,7 +7,16 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 02 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Losing the plots</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</link>
+      <description>When losing my plotting coding turned into a learning opportunity.</description>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</guid>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots/losing-the-plots_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Creating a caseload over time in SQL</title>
       <dc:creator>Zoë Turner</dc:creator>
