@@ -39,18 +39,6 @@
       <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r/img/dark-pink-blossom.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
-      <title>Compare SQL and R code</title>
-      <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-18-compare-sql-and-r-code</link>
-      <description>Generating sequential numbers code in SQL compared to R</description>
-      <category>SQL</category>
-      <category>R</category>
-      <category>Generate data</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-18-compare-sql-and-r-code</guid>
-      <pubDate>Thu, 18 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-18-compare-sql-and-r-code/img/lichen-on-branch.jpg" medium="image" type="image/jpeg"/>
-    </item>
-    <item>
       <title>Finding SQL varchar(max)</title>
       <dc:creator>Zoë Turner</dc:creator>
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</link>
