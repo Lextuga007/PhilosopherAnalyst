@@ -7,7 +7,17 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Finding special characters</title>
+      <dc:creator>Zoë Turner</dc:creator>
+      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters</link>
+      <description>A short description of the post.</description>
+      <category>Special characters</category>
+      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters</guid>
+      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters/img/tree-in-winter-light.png" medium="image" type="image/png" width="2100" height="2800"/>
+    </item>
     <item>
       <title>Losing the plots</title>
       <dc:creator>Zoë Turner</dc:creator>
