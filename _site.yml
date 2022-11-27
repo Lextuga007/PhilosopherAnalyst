@@ -1,7 +1,7 @@
 name: "PhilosopherAnalyst"
 title: "Blog"
 description: |
-  My Website
+  Blogsite for technical posts
 output_dir: "docs"
 navbar:
   search: true
@@ -15,14 +15,10 @@ navbar:
     - icon: fa fa-rss
       href: index.xml
   creative_commons: CC BY
-  twitter: 
-    site: "@Letxuga007"
-    creator: "@Letxuga007"
-base_url: https://lextuga007.github.io/PhilosopherAnalyst/    
+base_url: https://philosopher-analyst.netlify.app/
 repository_url: https://github.com/Lextuga007/PhilosopherAnalyst/
 collections:
   posts:
     disqus: philosopheranalyst
-    share: [twitter, linkedin, facebook]
     feed_items_max: false
 output: distill::distill_article

@@ -3,18 +3,18 @@
     {
       "path": "about.html",
       "title": "Philosopher Analyst",
-      "description": "A blog of musing by Zoë Turner",
+      "description": "A technical blog by Zoë Turner",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\nI am an NHS-R Community Champion and have written a few blogs on R and the Community here. I also run some of the Community’s Introduction to R and R Studio courses and attended every conference, even speaking at the last couple:\r\nWhy do I need to learn R when I can use SQL? 1:05:07\r\nI’ve also attended panels on behalf of NHS-R Community:\r\nInsight 2020 and NHS-R: The importance of R\r\n\r\n\r\n\r\nI am the Non-Executive Director for the Association of Professional Healthcare Analysts, leading specifically on equality, diversity and inclusion.\r\nWatch me here: Data challenges in a time of crisis\r\nWhy Philosopher Analyst?\r\nI studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&E data in one job and was hooked on data from then on.\r\nI started out using SQL and my journey into learning R started around the same time as NHS-R Community started.\r\nFind me on Twitter or LinkedIn\r\nI share my code on GitHub\r\nand my work email is\r\nzoe.turner2@nottshc.nhs.uk\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-27T18:15:30+00:00"
+      "contents": "\r\nThis was the first blog site I set up using {distill} and I’ve kept this for technical posts. The pictures I use here are my own that I’ve taken on my rambles.\r\nMy second blog site was build using Hugo Apéro which is also called Philosopher Analyst but is published through Netlify. It is where I post less technical blogs as well as host the R training materials I use for the NHS-R Community as some organisations block access to GitHub. Interestingly, others block Netlify, but not GitHub, which is why I have copied the prework for courses on my {distill} site.\r\nBlogs I’ve contributed to\r\nI am a Senior Fellow of the NHS-R Community and have written a few blogs for the community and I worked for the CDU Data Science Team in Nottinghamshire Healthcare NHS Foundation Trust until 2022 as a Data Scientist where I contributed to the team’s blog.\r\nWhy Philosopher Analyst?\r\nI studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&E data in one job and was hooked on data from then on. I started out using SQL and my journey into learning R started around the same time as NHS-R Community started.\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-11-27T21:20:56+00:00"
     },
     {
       "path": "index.html",
       "title": "Philosopher Analyst",
       "description": "You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst\n",
       "author": [],
-      "contents": "\r\nPhilosopher Analyst\r\n\r\nI am a Data Scientist working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I’m also involved with the trust’s Ethic Committee and consequently reviving my former interest medical ethics.\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-11-27T18:15:33+00:00"
+      "contents": "\r\nPhilosopher Analyst\r\n\r\nI am a Senior Data Scientist working in the NHS.\r\nContact details can be found in my contact me card created using {postcard}.\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-11-27T21:21:02+00:00"
     }
   ],
   "collections": ["posts/posts.json"]
