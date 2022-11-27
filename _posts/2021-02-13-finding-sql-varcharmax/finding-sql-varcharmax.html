@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Finding SQL varchar(max)</title>
@@ -186,6 +189,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -427,10 +431,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1262,7 +1262,22 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1273,6 +1288,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1372,6 +1412,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1394,7 +1436,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -1433,8 +1475,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="finding-sql-varcharmax_files/header-attrs-2.6.6/header-attrs.js"></script>
-  <script src="finding-sql-varcharmax_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="finding-sql-varcharmax_files/header-attrs-2.18/header-attrs.js"></script>
+  <script src="finding-sql-varcharmax_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="finding-sql-varcharmax_files/popper-2.6.0/popper.min.js"></script>
   <link href="finding-sql-varcharmax_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="finding-sql-varcharmax_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -1467,8 +1509,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h1>Finding SQL varchar(max)</h1>
 <!--radix_placeholder_categories-->
 <div class="dt-tags">
-<div class="dt=tag">SQL</div>
-<div class="dt=tag">Error in R</div>
+<div class="dt-tag">SQL</div>
+<div class="dt-tag">Error in R</div>
 </div>
 <!--/radix_placeholder_categories-->
 <p><p>SQL code to find the columns of max that need to be moved to the end of code for importing to R</p></p>
@@ -1482,7 +1524,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:intro-pic"></span>
+<div class="figure"><span style="display:block;" id="fig:intro-pic"></span>
 <img src="img/tree-branch-silohette.PNG" alt="Photo of tree branches in silohette" width="1110" height="50%" />
 <p class="caption">
 Figure 1: Photo of tree branches in silohette
@@ -1491,17 +1533,17 @@ Figure 1: Photo of tree branches in silohette
 </div>
 <h1 id="import-problems">Import problems</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="img/john-mackintosh-tweet.PNG" alt="Tweet: Dates stored as varchar is the SQL equivalent of 'red pants in the white wash'" width="304" />
 <p class="caption">
 Figure 2: Tweet: Dates stored as varchar is the SQL equivalent of ‘red pants in the white wash’
 </p>
 </div>
 </div>
-<p><span class="citation" data-cites="_JohnMackintosh">@_JohnMackintosh</span> posted in Twitter about his ‘red pants in the wash’ being those date columns that are in fact varchar(). I’ve been very lucky as our data warehouse people have consistently formatted dates in the SQL tables including my favourite integer yyyymmdd format which beautifully imports into R with no issues.</p>
-<p>What I have found though, which is my ‘red sock in the wash’, is varchar(max) or nvarchar(max) data which, it seems, causes an import error unless these columns are placed at the <strong>end</strong> of the select script.</p>
+<p><span class="citation" data-cites="_JohnMackintosh">@_JohnMackintosh</span> posted in Twitter about his ‘red pants in the wash’ being those date columns that are in fact <code>varchar()</code>. I’ve been very lucky as our data warehouse people have consistently formatted dates in the SQL tables including my favourite integer <code>yyyymmdd</code> format which beautifully imports into R with no issues.</p>
+<p>What I have found though, which is my ‘red sock in the wash’, is <code>varchar(max)</code> or <code>nvarchar(max)</code> data which, it seems, causes an import error unless these columns are placed at the <strong>end</strong> of the select script or recoded by using something like <code>CAST(colm AS varchar(150))</code>.</p>
 <h2 id="my-sock">My sock</h2>
-<p>The first time I noticed this, it was because of a table I had built myself. I had put in a column for comments and naturally went for varchar(max). To solve the problem I just changed the data type for the column - because I could.</p>
+<p>The first time I noticed this, it was because of a table I had built myself. I had put in a column for comments and naturally went for <code>varchar(max)</code>. To solve the problem I just changed the data type for the column - because I could.</p>
 <h2 id="others-socks">Others’ socks</h2>
 <p>The next time I encountered this, which wasn’t too long after, it was in a database I couldn’t update so I found my import scripts to R failing with an error:</p>
 <blockquote>
@@ -1509,7 +1551,7 @@ Figure 2: Tweet: Dates stored as varchar is the SQL equivalent of ‘red pants i
 </blockquote>
 <p>which isn’t really descriptive but searching for the error brought <a href="https://github.com/r-dbi/odbc/issues/86">this</a> up for the ODBC package:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
 <img src="img/git-hub-issue.PNG" alt="GitHub Issue: Short story is this is a bug in the MIcrosoft Driver with varchar(max) columns and they need to be at the end of the select query to work." width="474" />
 <p class="caption">
 Figure 3: GitHub Issue: Short story is this is a bug in the MIcrosoft Driver with varchar(max) columns and they need to be at the end of the select query to work.
@@ -1527,7 +1569,7 @@ Figure 3: GitHub Issue: Short story is this is a bug in the MIcrosoft Driver wit
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> sys.<span class="kw">types</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> system_type_id <span class="op">=</span> user_type_id</span></code></pre></div>
 </div>
-<p>Then when you know what varchar(max) or even nvarchar(max) is listed under for your own database search for it with this:</p>
+<p>Then when you know what <code>varchar(max)</code> or even <code>nvarchar(max)</code> is listed under for your own database search for it with this:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- USE database_example</span></span>
@@ -1555,9 +1597,9 @@ Figure 3: GitHub Issue: Short story is this is a bug in the MIcrosoft Driver wit
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="kw">schema</span>.<span class="kw">Table</span></span></code></pre></div>
 </div>
-<p>and instead I have to list out all 100 columns and move those that are varchar(max) to the end. Still, this code saves lots of peering at the screen.</p>
+<p>and instead I have to list out all 100 columns and move those that are <code>varchar(max)</code> to the end. Still, this code saves lots of peering at the screen.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
 <img src="https://media.giphy.com/media/xT0xesTIvqnaDu38cg/giphy.gif" alt="Happy bouncing blue and white sock"  />
 <p class="caption">
 Figure 4: Happy bouncing blue and white sock

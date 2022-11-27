@@ -30,13 +30,13 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 knitr::include_graphics("img/john-mackintosh-tweet.PNG")
 ```
 
-@_JohnMackintosh posted in Twitter about his 'red pants in the wash' being those date columns that are in fact varchar(). I've been very lucky as our data warehouse people have consistently formatted dates in the SQL tables including my favourite integer yyyymmdd format which beautifully imports into R with no issues.
+@_JohnMackintosh posted in Twitter about his 'red pants in the wash' being those date columns that are in fact `varchar()`. I've been very lucky as our data warehouse people have consistently formatted dates in the SQL tables including my favourite integer `yyyymmdd` format which beautifully imports into R with no issues.
 
-What I have found though, which is my 'red sock in the wash', is varchar(max) or nvarchar(max) data which, it seems, causes an import error unless these columns are placed at the **end** of the select script.
+What I have found though, which is my 'red sock in the wash', is `varchar(max)` or `nvarchar(max)` data which, it seems, causes an import error unless these columns are placed at the **end** of the select script or recoded by using something like `CAST(colm AS varchar(150))`.
 
 ## My sock
 
-The first time I noticed this, it was because of a table I had built myself. I had put in a column for comments and naturally went for varchar(max). To solve the problem I just changed the data type for the column - because I could.
+The first time I noticed this, it was because of a table I had built myself. I had put in a column for comments and naturally went for `varchar(max)`. To solve the problem I just changed the data type for the column - because I could.
 
 ## Others' socks
 
@@ -66,7 +66,7 @@ WHERE system_type_id = user_type_id
 
 ```
 
-Then when you know what varchar(max) or even nvarchar(max) is listed under for your own database search for it with this:
+Then when you know what `varchar(max)` or even `nvarchar(max)` is listed under for your own database search for it with this:
 
 ```{sql }
 
@@ -99,7 +99,7 @@ SELECT *
 FROM schema.Table
 ```
 
-and instead I have to list out all 100 columns and move those that are varchar(max) to the end. Still, this code saves lots of peering at the screen.
+and instead I have to list out all 100 columns and move those that are `varchar(max)` to the end. Still, this code saves lots of peering at the screen.
 
 ```{r eval=TRUE, echo=FALSE, fig.cap="Happy bouncing blue and white sock"}
 knitr::include_graphics("https://media.giphy.com/media/xT0xesTIvqnaDu38cg/giphy.gif")
