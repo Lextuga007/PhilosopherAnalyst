@@ -10,6 +10,7 @@ output:
 categories:
   - Generate data
   - R
+  - Caseload
 preview: preview.png  
 ---
 

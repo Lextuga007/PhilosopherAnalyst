@@ -41,6 +41,7 @@
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</link>
       <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
       <category>SQL</category>
+      <category>Caseload</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</guid>
       <pubDate>2021-05-02</pubDate>
     </item>
@@ -51,6 +52,7 @@
       <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
       <category>Generate data</category>
       <category>R</category>
+      <category>Caseload</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</guid>
       <pubDate>2021-05-01</pubDate>
     </item>
