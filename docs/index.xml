@@ -7,14 +7,14 @@
     <description>My Website
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>2022-06-07</lastBuildDate>
     <item>
       <title>Prework for courses</title>
       <dc:creator>Zoë Turner</dc:creator>
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses</link>
       <description>A short description of the post.</description>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses</guid>
-      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+      <pubDate>2022-06-07</pubDate>
     </item>
     <item>
       <title>Finding special characters</title>
@@ -23,8 +23,8 @@
       <description>Notes on getting the ë using shortcut keys on a Windows computer.</description>
       <category>Special characters</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters</guid>
-      <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters/img/tree-in-winter-light.png" medium="image" type="image/png" width="2100" height="2800"/>
+      <pubDate>2022-03-30</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters/distill-preview.png" medium="image" type="image/png" width="2100" height="2800"/>
     </item>
     <item>
       <title>Losing the plots</title>
@@ -32,8 +32,8 @@
       <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</link>
       <description>When losing my plotting coding turned into a learning opportunity.</description>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</guid>
-      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots/losing-the-plots_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <pubDate>2021-11-24</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Creating a caseload over time in SQL</title>
@@ -42,8 +42,7 @@
       <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
       <category>SQL</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</guid>
-      <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql/img/pink-tulip.jpg" medium="image" type="image/jpeg"/>
+      <pubDate>2021-05-02</pubDate>
     </item>
     <item>
       <title>Creating a caseload over time in R</title>
@@ -53,8 +52,7 @@
       <category>Generate data</category>
       <category>R</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</guid>
-      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r/img/dark-pink-blossom.jpg" medium="image" type="image/jpeg"/>
+      <pubDate>2021-05-01</pubDate>
     </item>
     <item>
       <title>Finding SQL varchar(max)</title>
@@ -64,8 +62,8 @@
       <category>SQL</category>
       <category>Error in R</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</guid>
-      <pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax/img/tree-branch-silohette.PNG" medium="image" type="image/png" width="2220" height="2400"/>
+      <pubDate>2021-02-13</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax/distill-preview.png" medium="image" type="image/png" width="2220" height="2400"/>
     </item>
     <item>
       <title>Using the monstR package</title>
@@ -75,8 +73,7 @@
       <category>ONS data</category>
       <category>R</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package</guid>
-      <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package/img/snowdrops.jpg" medium="image" type="image/jpeg"/>
+      <pubDate>2021-02-08</pubDate>
     </item>
     <item>
       <title>Creating sample datetime data in R</title>
@@ -86,7 +83,7 @@
       <category>R</category>
       <category>Generate data</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r</guid>
-      <pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>2021-02-05</pubDate>
       <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r/img/leaves-frost.png" medium="image" type="image/png" width="2997" height="3808"/>
     </item>
     <item>
@@ -96,8 +93,8 @@
       <description>Notes on adding comments to distill pages.</description>
       <category>Distill</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs</guid>
-      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs/img/frost-on-wood.png" medium="image" type="image/png" width="4000" height="3000"/>
+      <pubDate>2021-01-31</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs/distill-preview.png" medium="image" type="image/png" width="4000" height="3000"/>
     </item>
     <item>
       <title>Data Ethics</title>
@@ -107,8 +104,8 @@
       <category>Philosophy</category>
       <category>Ethics</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics</guid>
-      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics/img/holly.PNG" medium="image" type="image/png" width="3968" height="1984"/>
+      <pubDate>2021-01-15</pubDate>
+      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics/distill-preview.png" medium="image" type="image/png" width="3968" height="1984"/>
     </item>
     <item>
       <title>Publishing xaringan slides</title>
@@ -118,7 +115,7 @@
       <category>Xaringan</category>
       <category>GitHub</category>
       <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides</guid>
-      <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>2020-12-19</pubDate>
       <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides/distill-preview.png" medium="image" type="image/png" width="453" height="551"/>
     </item>
   </channel>

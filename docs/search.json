@@ -6,7 +6,7 @@
       "description": "A blog of musing by Zoë Turner",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\nI am an NHS-R Community Senior Fellow and my blogs and contributions to the community are gathered together in my main blog site, built in Hugo Apéro.\r\nWhy Philosopher Analyst?\r\nI studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&E data in one job and was hooked on data from then on.\r\nI started out using SQL and my journey into learning R started around the same time as NHS-R Community started.\r\nContact me\r\nWhen learning about the Hugo Apéro site I was also introduced to {postcard} where I can now keep all my contact details in one place. If you are interested in learning how to do these too the workshop materials are all online at https://iyo-rstudio-global.netlify.app/collection/day01/02-postcards/.\r\n\r\n\r\n\r\n",
-      "last_modified": "2023-02-08T14:59:40+00:00"
+      "last_modified": "2023-06-20T18:32:12+01:00"
     },
     {
       "path": "index.html",
@@ -14,7 +14,7 @@
       "description": "You can take the Analyst out of Philosophy, but never the Philosophy out of the Analyst\n",
       "author": [],
       "contents": "\r\nPhilosopher Analyst\r\n\r\nI am a Data Scientist working in the data science team within the clinical development unit of Nottinghamshire Healthcare NHS Trust where I spend my days working with mental and general health patient level data, as well as Public Health data. I’m also involved with the trust’s Ethic Committee and consequently reviving my former interest medical ethics.\r\n\r\n\r\n\r\n",
-      "last_modified": "2023-02-08T14:59:42+00:00"
+      "last_modified": "2023-06-20T18:32:14+01:00"
     }
   ],
   "collections": ["posts/posts.json"]
