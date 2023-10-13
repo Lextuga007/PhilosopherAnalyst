@@ -1,33 +1,24 @@
 ---
 title: "Philosopher Analyst"
 description: |
-  A blog of musing by Zoë Turner
+  A technical blog by Zoë Turner
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
-# install.packages("remotes")
-# remotes::install_github("mitchelloharawild/icon")
-#library(icon) # icons need to be loaded to view so run following code if not already done
-# icon::download_fontawesome()
 ```
 
 
-```{r nhsr, out.width = "100px"}
+This was the first blog site I set up using {distill} and I've kept this for technical posts. The pictures I use here are my own that I've taken on my rambles.
 
-knitr::include_graphics("company-logos/NHSRLogo.png")
+My second blog site was build using [Hugo Apéro](https://philosopher-analyst.netlify.app/) which is also called Philosopher Analyst but is published through Netlify. It is where I post less technical blogs as well as host the R training materials I use for the [NHS-R Community](https://twitter.com/NHSRCommunity) as some organisations block access to GitHub. Interestingly, others block Netlify, but not GitHub, which is why I have copied the [prework for courses](https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses/) on my {distill} site.
 
-```
+## Blogs I've contributed to
 
-I am an [NHS-R Community](https://twitter.com/NHSRCommunity) Senior Fellow and my blogs and contributions to the community are gathered together in my [main blog site](https://philosopher-analyst.netlify.app/blog/), built in Hugo Apéro.
+I am a Senior Fellow of the [NHS-R Community](https://twitter.com/NHSRCommunity) and have written a few [blogs](https://nhsrcommunity.com/blog/author/z-turner/) for the community and I worked for the [CDU Data Science Team](https://cdu-data-science-team.github.io/project-showcase/) in Nottinghamshire Healthcare NHS Foundation Trust until 2022 as a Data Scientist where I contributed to the [team's blog](https://cdu-data-science-team.github.io/team-blog/).
+
 
 ## Why Philosopher Analyst?
 
-I studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&E data in one job and was hooked on data from then on. 
-
-I started out using SQL and my journey into learning R started around the same time as NHS-R Community started. 
-
-## Contact me
-
-When learning about the Hugo Apéro site I was also introduced to {postcard} where I can now keep all my [contact details](https://lextuga007.github.io/contact-me/) in one place. If you are interested in learning how to do these too the workshop materials are all online at https://iyo-rstudio-global.netlify.app/collection/day01/02-postcards/.
+I studied Philosophy many years ago and had no idea about analysis or programming but I was lucky to get a chance to work with some A&E data in one job and was hooked on data from then on. I started out using SQL and my journey into learning R started around the same time as NHS-R Community started. 

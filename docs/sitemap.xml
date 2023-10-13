@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/about.html</loc>
-    <lastmod>2023-02-08T15:01:34+00:00</lastmod>
+    <loc>https://philosopher-analyst.netlify.app/about.html</loc>
+    <lastmod>2023-10-13T14:18:35+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/</loc>
+    <loc>https://philosopher-analyst.netlify.app/</loc>
     <lastmod>2022-12-12T22:50:39+00:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2022-06-07-prework-for-courses/</loc>
     <lastmod>2023-06-20T18:38:19+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters/</loc>
-    <lastmod>2023-10-13T14:08:15+01:00</lastmod>
+    <loc>https://philosopher-analyst.netlify.app/posts/2022-03-30-finding-special-characters/</loc>
+    <lastmod>2023-10-13T14:16:15+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-11-24-losing-the-plots/</loc>
     <lastmod>2023-06-20T18:38:19+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-05-02-creating-a-caseload-over-time-in-sql/</loc>
     <lastmod>2023-06-20T18:46:06+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-05-01-creating-a-caseload-over-time-in-r/</loc>
     <lastmod>2023-06-20T18:46:06+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-02-13-finding-sql-varcharmax/</loc>
     <lastmod>2023-06-20T18:38:19+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-02-08-using-monstr-package/</loc>
     <lastmod>2023-06-20T18:38:19+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-02-05-creating-sample-datetime-data-in-r/</loc>
     <lastmod>2022-12-12T22:50:38+00:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-01-31-adding-disqus-to-distill-blogs/</loc>
     <lastmod>2023-06-20T18:38:19+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2021-01-15-data-ethics/</loc>
     <lastmod>2023-06-20T18:38:18+01:00</lastmod>
   </url>
   <url>
-    <loc>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides/</loc>
+    <loc>https://philosopher-analyst.netlify.app/posts/2020-12-19-publishing-xaringan-slides/</loc>
     <lastmod>2022-12-12T22:50:38+00:00</lastmod>
   </url>
 </urlset>
