@@ -2,123 +2,123 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>Blog</title>
-    <link>https://lextuga007.github.io/PhilosopherAnalyst/</link>
-    <atom:link href="https://lextuga007.github.io/PhilosopherAnalyst/index.xml" rel="self" type="application/rss+xml"/>
-    <description>My Website
+    <link>https://philosopher-analyst.netlify.app/</link>
+    <atom:link href="https://philosopher-analyst.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Blogsite for technical posts
 </description>
     <generator>Distill</generator>
     <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Prework for courses</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2022-06-07-prework-for-courses</link>
       <description>A short description of the post.</description>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-06-07-prework-for-courses</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2022-06-07-prework-for-courses</guid>
       <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Finding special characters</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2022-03-30-finding-special-characters</link>
       <description>Notes on getting the ë using shortcut keys on a Windows computer.</description>
       <category>Special characters</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2022-03-30-finding-special-characters</guid>
       <pubDate>Wed, 30 Mar 2022 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2022-03-30-finding-special-characters/distill-preview.png" medium="image" type="image/png" width="2100" height="2800"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2022-03-30-finding-special-characters/distill-preview.png" medium="image" type="image/png" width="2100" height="2800"/>
     </item>
     <item>
       <title>Losing the plots</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-11-24-losing-the-plots</link>
       <description>When losing my plotting coding turned into a learning opportunity.</description>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-11-24-losing-the-plots</guid>
       <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-11-24-losing-the-plots/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2021-11-24-losing-the-plots/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Creating a caseload over time in SQL</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-05-02-creating-a-caseload-over-time-in-sql</link>
       <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
       <category>SQL</category>
       <category>Caseload</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-02-creating-a-caseload-over-time-in-sql</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-05-02-creating-a-caseload-over-time-in-sql</guid>
       <pubDate>Sun, 02 May 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Creating a caseload over time in R</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-05-01-creating-a-caseload-over-time-in-r</link>
       <description>How to count referrals/patients/anything between two dates in a given period of time.</description>
       <category>Generate data</category>
       <category>R</category>
       <category>Caseload</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-05-01-creating-a-caseload-over-time-in-r</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-05-01-creating-a-caseload-over-time-in-r</guid>
       <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Finding SQL varchar(max)</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-02-13-finding-sql-varcharmax</link>
       <description>SQL code to find the columns of max that need to be moved to the end of code for importing to R</description>
       <category>SQL</category>
       <category>Error in R</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-02-13-finding-sql-varcharmax</guid>
       <pubDate>Sat, 13 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-13-finding-sql-varcharmax/distill-preview.png" medium="image" type="image/png" width="2220" height="2400"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2021-02-13-finding-sql-varcharmax/distill-preview.png" medium="image" type="image/png" width="2220" height="2400"/>
     </item>
     <item>
       <title>Using the monstR package</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-02-08-using-monstr-package</link>
       <description>Gettting regional deaths from the monstR package</description>
       <category>ONS data</category>
       <category>R</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-08-using-monstr-package</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-02-08-using-monstr-package</guid>
       <pubDate>Mon, 08 Feb 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Creating sample datetime data in R</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-02-05-creating-sample-datetime-data-in-r</link>
       <description>How to produce a reproducible example (reprex) for datetime</description>
       <category>R</category>
       <category>Generate data</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-02-05-creating-sample-datetime-data-in-r</guid>
       <pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-02-05-creating-sample-datetime-data-in-r/img/leaves-frost.png" medium="image" type="image/png" width="2997" height="3808"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2021-02-05-creating-sample-datetime-data-in-r/img/leaves-frost.png" medium="image" type="image/png" width="2997" height="3808"/>
     </item>
     <item>
       <title>Adding Disqus to distill blogs</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-01-31-adding-disqus-to-distill-blogs</link>
       <description>Notes on adding comments to distill pages.</description>
       <category>Distill</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-01-31-adding-disqus-to-distill-blogs</guid>
       <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-31-adding-disqus-to-distill-blogs/distill-preview.png" medium="image" type="image/png" width="4000" height="3000"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2021-01-31-adding-disqus-to-distill-blogs/distill-preview.png" medium="image" type="image/png" width="4000" height="3000"/>
     </item>
     <item>
       <title>Data Ethics</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2021-01-15-data-ethics</link>
       <description>Philosophers are experts in their field</description>
       <category>Philosophy</category>
       <category>Ethics</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2021-01-15-data-ethics</guid>
       <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2021-01-15-data-ethics/distill-preview.png" medium="image" type="image/png" width="3968" height="1984"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2021-01-15-data-ethics/distill-preview.png" medium="image" type="image/png" width="3968" height="1984"/>
     </item>
     <item>
       <title>Publishing xaringan slides</title>
       <dc:creator>Zoë Turner</dc:creator>
-      <link>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides</link>
+      <link>https://philosopher-analyst.netlify.app/posts/2020-12-19-publishing-xaringan-slides</link>
       <description>Notes on how I published my NHS-R Conference lightning talk</description>
       <category>Xaringan</category>
       <category>GitHub</category>
-      <guid>https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides</guid>
+      <guid>https://philosopher-analyst.netlify.app/posts/2020-12-19-publishing-xaringan-slides</guid>
       <pubDate>Sat, 19 Dec 2020 00:00:00 +0000</pubDate>
-      <media:content url="https://lextuga007.github.io/PhilosopherAnalyst/posts/2020-12-19-publishing-xaringan-slides/distill-preview.png" medium="image" type="image/png" width="453" height="551"/>
+      <media:content url="https://philosopher-analyst.netlify.app/posts/2020-12-19-publishing-xaringan-slides/distill-preview.png" medium="image" type="image/png" width="453" height="551"/>
     </item>
   </channel>
 </rss>
