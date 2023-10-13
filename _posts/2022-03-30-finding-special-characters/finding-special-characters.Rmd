@@ -74,3 +74,9 @@ This works for the standard keyboard as well as the extended so that's a nice fi
 ## Addendum
 
 [Microsoft PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/quick-accent) have a quick accent utility but relies upon PowerToys being installed.
+
+### Another shortcut!
+
+Found by my colleague Lorna Crofts at The Strategy Unit:
+
+`Ctrl and Shift and :` (colon), release the keys, and type an e
